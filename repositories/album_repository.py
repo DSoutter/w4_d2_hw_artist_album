@@ -19,14 +19,26 @@ def delete_all():
 
 
 def select(id):
-    pass
+    album = None
+    sql = "SELECT * FROM albums WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        artist = artist_repository.select(result['artist_id'])
+        album = Album(result['title'], result['genre'], artist, result['id'])
+
+    return album
 
 
 def delete(id):
     pass
 
 def select_all():
-    pass
+    albums = [] 
+
+    sql = "SELECT * FROM albums"
+    results = run_sql(sql)
 
 def update(album):
     pass
