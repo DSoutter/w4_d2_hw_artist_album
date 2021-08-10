@@ -43,4 +43,6 @@ def select_all():
     results = run_sql(sql)
 
 def update(album):
-    pass
+    sql = "UPDATE artists SET (title, genre, artist) = (%s, %s, %s) WHERE id = %s"
+    values = [album.title, album.genre, album.artist.id]
+    run_sql(sql,values)

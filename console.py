@@ -28,6 +28,10 @@ album_repository.save(album3)
 album_repository.save(album4)
 album_repository.save(album5)
 
+artist_repository.update(artist1)
+
+
+
 # for album in album_repository.select_all():
 #     print(album.__dict__)
 
