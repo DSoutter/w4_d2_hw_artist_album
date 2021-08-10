@@ -32,7 +32,9 @@ def select(id):
 
 
 def delete(id):
-    pass
+    sql = "DELETE FROM albums WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def select_all():
     albums = [] 

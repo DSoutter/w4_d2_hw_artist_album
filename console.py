@@ -15,12 +15,18 @@ artist2=Artist("The Strokes")
 
 album1=Album("Pulp", "Indie", artist1)
 album2=Album("Is this is", "rock", artist2)
+album3=Album("Squeeze", "Indie", artist1)
+album4=Album("Juice", "Indie", artist1)
+album5=Album("Red, Yellow & Blue", "Indie", artist1)
 
 artist_repository.save(artist1)
 artist_repository.save(artist2)
 
 album_repository.save(album1)
 album_repository.save(album2)
+album_repository.save(album3)
+album_repository.save(album4)
+album_repository.save(album5)
 
 # for album in album_repository.select_all():
 #     print(album.__dict__)
