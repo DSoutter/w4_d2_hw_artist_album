@@ -26,8 +26,18 @@ def select(id):
 
     return artist
 
+# below is similar to above but you have to select a specific artist_id not just all
 def albums(artist):
-    pass
+    albums = []
+
+    sql = "SELECT * FROM albums WHERE artist_id = %s"
+    values = [artist.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        album = Album(row['title'], row['genre'], artist, row['id'])
+        albums.append(album)
+    return albums
 
 
 def select_all():
@@ -42,7 +52,7 @@ def delete(id):
     run_sql(sql, values)
 
 def update(artist):
-    sql = "UPDATE artists SET (name) = (%s) WHERE id = %s"
+    sql = "UPDATE artists SET name = %s WHERE id = %s"
     values = [artist.name, artist.id]
     run_sql(sql,values)
 
